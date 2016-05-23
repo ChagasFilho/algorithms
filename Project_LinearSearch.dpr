@@ -6,25 +6,29 @@ var
 
 function LinearSearch(Key: integer; Linha: array of integer): integer;
 var
-  i: Integer;
+  i, n, iLast: Integer;
 begin
   i := 0;
 
-  while (Linha[i] <> Key) and (i < 20) do
-    begin
-      Inc(i);
-    end;
+  n := Length(Linha) - 1;
 
-  if i >= Length(Linha) then
-    Result := -1
+  iLast := Linha[n];
+  Linha[n] :=  Key;
+
+  while (Linha[i] <> Key) do Inc(i);
+
+  Linha[n] := iLast;
+
+  if Linha[i] = Key then
+    Result := i
   else
-    Result := i;
+    Result := -1;
 
 end;
 
 begin
   Writeln('20 16 23 05 10 19 83 32 33 52 04 55 15 07 02 98 65 43 71 87');
-  Readln;
+  Read;
   Writeln('Informe um Número da Sequência a cima: ');
   Readln(Key);
   Writeln('A posição do valor ', Key, ' está no índice: ', LinearSearch(Key, Linha));
