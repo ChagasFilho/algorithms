@@ -10,15 +10,7 @@ var
 begin
   for i := 0 to 19 do
     begin
-      if linha[i] = Key then
-        begin
-          Result := i;
-          Break;
-        end
-      else
-        begin
-          Result := -1;
-        end;
+      if linha[i] = Key then Result := i else Result := -1;
     end;
 end;
 

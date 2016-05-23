@@ -13,12 +13,8 @@ begin
       if linha[i] = Key then
         begin
           Result := i;
-          Break;
         end
-      else
-        begin
-          Result := -1;
-        end;
+      else Result := -1;
     end;
 end;
 
