@@ -9,7 +9,6 @@ var
   i: Integer;
 begin
   i := 0;
-
   while Linha[i] <> Key do
     begin
       Inc(i);

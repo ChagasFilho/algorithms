@@ -9,13 +9,11 @@ var
   i: Integer;
 begin
   i := 0;
-
   while Linha[i] <> Key do
     begin
+      Result := i;
       Inc(i);
-    end;
-
-  Result := i;
+    end
 end;
 
 begin
