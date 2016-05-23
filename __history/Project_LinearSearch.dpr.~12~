@@ -15,7 +15,7 @@ begin
       Inc(i);
     end;
 
-  if i >= Length(Linha) then
+  if i > Length(Linha) then
     Result := -1
   else
     Result := i;

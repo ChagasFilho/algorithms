@@ -8,14 +8,14 @@ function LinearSearch(Key: integer; Linha: array of integer): integer;
 var
   i: Integer;
 begin
-  for i := 0 to 19 do
+  i := 0;
+
+  while Linha[i] <> Key do
     begin
-      if linha[i] = Key then
-        begin
-          Result := i;
-        end
-      else Result := -1;
+      Inc(i);
     end;
+
+  Result := i;
 end;
 
 begin

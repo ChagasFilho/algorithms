@@ -10,16 +10,18 @@ var
 begin
   i := 0;
 
-  while (Linha[i] <> Key) and (i < 20) do
+  while Linha[i] <> Key do
     begin
       Inc(i);
+      if i > 19 then
+        begin
+          Result := -1;
+          Break;
+        end;
+
     end;
 
-  if i >= Length(Linha) then
-    Result := -1
-  else
-    Result := i;
-
+  Result := i;
 end;
 
 begin
