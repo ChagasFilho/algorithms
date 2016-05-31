@@ -1,0 +1,50 @@
+program BinarySearch;
+const
+  Linha: array[1..20] of integer = (02, 04, 05, 07, 10, 15, 16, 19, 20, 23, 32, 33, 43, 52, 55, 65, 71, 83, 87, 98);
+var
+  Key: integer;
+
+  function BSearch(Key: integer; Linha: array of integer): integer;
+  var
+    Esquerda, Meio, Direita: Integer;
+    Enc: Boolean;
+  begin
+
+    Esquerda := 0;
+    Direita := 19;
+
+    Result := -1;
+
+    while (Esquerda <= Direita) and (Enc = False) do
+      begin
+        Meio := (Esquerda + Direita) div 2;
+
+        if (Key = Linha[Meio]) then
+          Result := 1
+        else if (Key < Linha[Meio]) Then
+          Direita := Meio - 1
+        else
+          Esquerda := Meio + 1;
+      end;
+
+    if Result = 1 then
+      writeln('A posição do valor ', Key, ' está no índice: ', Meio)
+    else if Result = -1 then
+      writeln('O Valor ', Key,' não foi encontrado no Vetor acima.');
+
+  end;
+
+begin
+  Writeln('02, 04, 05, 07, 10, 15, 16, 19, 20, 23, 32, 33, 43, 52, 55, 65, 71, 83, 87, 98');
+  Read;
+  Writeln('Informe um Número da Sequência a cima: ');
+  Readln(Key);
+  Writeln(BSearch(Key, Linha));
+
+    if BSearch(Key, Linha) = 1 then
+      writeln('A posição do valor ', Key, ' está no índice: ', Meio)
+    else if BSearch(Key, Linha) = -1 then
+      writeln('O Valor ', Key,' não foi encontrado no Vetor acima.');
+
+  Readln;
+end.

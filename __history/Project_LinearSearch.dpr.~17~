@@ -6,19 +6,26 @@ var
 
 function LinearSearch(Key: integer; Linha: array of integer): integer;
 var
-  i: Integer;
+  i, n, iLast: Integer;
 begin
   i := 0;
 
-  while (Linha[i] <> Key) and (i < 20) do
+  n := Length(Linha);
+
+  iLast := Linha[n-1];
+  Linha[n-1] :=  Key;
+
+  while (Linha[i] <> Key) do
     begin
       Inc(i);
     end;
 
-  if i > Length(Linha) then
-    Result := -1
+  Linha[n-1] := iLast;
+
+  if Linha[i] = Key then
+    Result := i
   else
-    Result := i;
+    Result := -1;
 
 end;
 
